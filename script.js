@@ -56,3 +56,33 @@ document.querySelectorAll("[data-filter]").forEach((button) => {
     notify("Фильтрацию подключим после утверждения состава туров.");
   });
 });
+
+const videoTrack = document.querySelector("[data-video-track]");
+const videoPrevious = document.querySelector("[data-video-prev]");
+const videoNext = document.querySelector("[data-video-next]");
+
+function scrollVideos(direction) {
+  if (!videoTrack) return;
+  const firstCard = videoTrack.querySelector(".video-slide");
+  const step = firstCard ? firstCard.getBoundingClientRect().width + 20 : 420;
+  videoTrack.scrollBy({ left: direction * step, behavior: "smooth" });
+}
+
+videoPrevious?.addEventListener("click", () => scrollVideos(-1));
+videoNext?.addEventListener("click", () => scrollVideos(1));
+
+const clock = document.querySelector("[data-chisinau-clock]");
+const chisinauTime = new Intl.DateTimeFormat("ru-RU", {
+  timeZone: "Europe/Chisinau",
+  hour: "2-digit",
+  minute: "2-digit",
+  second: "2-digit",
+  hour12: false,
+});
+
+function updateClock() {
+  if (clock) clock.textContent = chisinauTime.format(new Date());
+}
+
+updateClock();
+if (clock) window.setInterval(updateClock, 1000);
