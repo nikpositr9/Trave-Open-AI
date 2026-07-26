@@ -9,6 +9,9 @@
   --line: #dedfe3;
   --muted: #7d8088;
   --white: #ffffff;
+  --rose: #941934;
+  --blush: #fff2f5;
+  --blush-strong: #fbdbe3;
   --radius-sm: 12px;
   --radius-md: 20px;
   --radius-lg: 28px;
@@ -504,6 +507,265 @@ img {
   margin-top: 32px;
 }
 
+.screen-section,
+.guide-section,
+.essentials-section {
+  position: relative;
+  overflow: hidden;
+  padding: 110px var(--page-x);
+}
+
+.screen-section,
+.guide-section {
+  background: var(--white);
+}
+
+.screen-section::before,
+.guide-section::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: -80px;
+  left: -70px;
+  width: 570px;
+  height: 420px;
+  opacity: 0.9;
+  background:
+    linear-gradient(90deg, var(--blush-strong) 22%, transparent 22%) 0 0 / 155px
+      150px,
+    linear-gradient(var(--blush-strong) 22%, transparent 22%) 0 0 / 155px 150px;
+  transform: rotate(3deg);
+  pointer-events: none;
+}
+
+.block-head,
+.video-track,
+.block-footer,
+.guide-grid,
+.essentials-grid {
+  position: relative;
+  z-index: 1;
+}
+
+.block-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 48px;
+}
+
+.block-head h2 {
+  margin: 0;
+  font-size: clamp(54px, 6vw, 86px);
+  font-weight: 600;
+  line-height: 0.92;
+  letter-spacing: -0.065em;
+  text-transform: uppercase;
+}
+
+.block-intro {
+  max-width: 470px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.slider-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.round-arrow {
+  width: 54px;
+  height: 54px;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink);
+  font-size: 24px;
+  transition:
+    color 180ms ease,
+    background 180ms ease;
+}
+
+.round-arrow:hover {
+  background: var(--ink);
+  color: var(--white);
+}
+
+.video-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 4px 2px 14px;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.video-track::-webkit-scrollbar {
+  display: none;
+}
+
+.video-slide {
+  min-width: clamp(320px, 37vw, 530px);
+  scroll-snap-align: start;
+}
+
+.video-poster {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--panel);
+  box-shadow: 0 14px 28px rgba(10, 15, 28, 0.09);
+}
+
+.video-poster::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(1, 3, 14, 0.25), transparent 55%);
+}
+
+.video-poster img {
+  height: 100%;
+  object-fit: cover;
+  transition: transform 400ms ease;
+}
+
+.video-slide:hover .video-poster img {
+  transform: scale(1.035);
+}
+
+.video-play {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  width: 70px;
+  height: 70px;
+  display: grid;
+  place-content: center;
+  padding-left: 4px;
+  border-radius: 50%;
+  background: var(--rose);
+  color: var(--white);
+  transform: translate(-50%, -50%);
+  box-shadow: 0 12px 32px rgba(58, 7, 20, 0.22);
+}
+
+.video-slide > strong {
+  display: block;
+  max-width: 500px;
+  margin-top: 16px;
+  font-size: clamp(20px, 2vw, 28px);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.block-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 30px;
+}
+
+.block-footer p {
+  max-width: 510px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.guide-section {
+  padding-top: 130px;
+}
+
+.guide-section::before {
+  top: auto;
+  right: -90px;
+  bottom: -120px;
+  left: auto;
+  width: 720px;
+  height: 580px;
+}
+
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-auto-rows: 205px;
+  gap: 18px;
+}
+
+.guide-card {
+  position: relative;
+  grid-column: span 3;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--panel);
+  color: var(--white);
+  box-shadow: 0 12px 24px rgba(10, 15, 28, 0.08);
+}
+
+.guide-card--hero {
+  grid-column: span 6;
+  grid-row: span 2;
+}
+
+.guide-card--wide {
+  grid-column: span 6;
+}
+
+.guide-card img {
+  height: 100%;
+  object-fit: cover;
+  transition: transform 400ms ease;
+}
+
+.guide-card:hover img {
+  transform: scale(1.035);
+}
+
+.guide-card::after {
+  content: "";
+  position: absolute;
+  inset: 25% 0 0;
+  background: linear-gradient(transparent, rgba(1, 3, 14, 0.86));
+}
+
+.guide-card > span {
+  position: absolute;
+  z-index: 2;
+  right: 24px;
+  bottom: 22px;
+  left: 24px;
+}
+
+.guide-card strong,
+.guide-card small {
+  display: block;
+  text-transform: uppercase;
+}
+
+.guide-card strong {
+  font-size: clamp(18px, 1.8vw, 26px);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.035em;
+}
+
+.guide-card small {
+  margin-top: 7px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+}
+
 .callback {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
@@ -593,6 +855,158 @@ img {
   background: var(--white);
   color: var(--ink);
   transform: translate(-50%, -50%);
+}
+
+.essentials-section {
+  background: #fbfbfc;
+}
+
+.essentials-section .block-head {
+  margin-bottom: 56px;
+}
+
+.essentials-section .eyebrow {
+  color: var(--rose);
+}
+
+.essentials-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-auto-rows: 178px;
+  gap: 18px;
+}
+
+.essential-card {
+  grid-column: span 3;
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 28px;
+  border: 1px solid #f0e3e6;
+  border-radius: 30px;
+  background: var(--blush);
+  color: #4b0e1d;
+}
+
+.essential-card--clock,
+.essential-card--weather,
+.essential-card--rates,
+.essential-card--visa,
+.essential-card--emergency,
+.essential-card--transport,
+.essential-card--languages {
+  grid-column: span 4;
+}
+
+.essential-card--clock {
+  grid-column: span 5;
+  grid-row: span 2;
+  background: #10182d;
+  color: var(--white);
+  box-shadow: 0 18px 36px rgba(12, 22, 45, 0.15);
+}
+
+.essential-card--weather {
+  grid-column: span 3;
+  grid-row: span 2;
+}
+
+.essential-card--rates {
+  grid-column: span 4;
+  grid-row: span 2;
+  justify-content: flex-start;
+  background: var(--white);
+  color: var(--ink);
+}
+
+.essential-card--visa {
+  grid-column: span 5;
+}
+
+.essential-card--emergency {
+  grid-column: span 4;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 22px;
+}
+
+.essential-card--transport {
+  grid-column: span 5;
+}
+
+.essential-card--languages {
+  grid-column: span 4;
+  background: #10182d;
+  color: var(--white);
+  box-shadow: 0 18px 36px rgba(12, 22, 45, 0.12);
+}
+
+.essential-label {
+  display: block;
+  margin-bottom: auto;
+  color: #c44c69;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.essential-card--clock .essential-label,
+.essential-card--languages .essential-label {
+  color: #a9b9d8;
+}
+
+.essential-card > strong,
+.essential-card > span > strong {
+  display: block;
+  font-size: clamp(24px, 2.5vw, 40px);
+  font-weight: 600;
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+}
+
+.essential-card--clock .live-clock {
+  font-size: clamp(56px, 6vw, 88px);
+  letter-spacing: -0.065em;
+}
+
+.essential-card small {
+  display: block;
+  margin-top: 9px;
+  color: currentColor;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  opacity: 0.62;
+  text-transform: uppercase;
+}
+
+.rate-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 17px;
+  padding-bottom: 11px;
+  border-bottom: 1px solid #ececef;
+}
+
+.rate-row span {
+  color: var(--rose);
+}
+
+.emergency-icon {
+  width: 70px;
+  height: 70px;
+  flex: 0 0 auto;
+  display: grid;
+  place-content: center;
+  border-radius: 20px;
+  background: var(--rose);
+  color: var(--white);
+  font-size: 28px;
+  box-shadow: 0 12px 26px rgba(91, 11, 31, 0.15);
 }
 
 .site-footer {
@@ -824,6 +1238,29 @@ img {
   .press-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .guide-card {
+    grid-column: span 4;
+  }
+
+  .guide-card--hero,
+  .guide-card--wide {
+    grid-column: span 6;
+  }
+
+  .essential-card,
+  .essential-card--weather,
+  .essential-card--rates,
+  .essential-card--emergency,
+  .essential-card--languages {
+    grid-column: span 4;
+  }
+
+  .essential-card--clock,
+  .essential-card--visa,
+  .essential-card--transport {
+    grid-column: span 6;
+  }
 }
 
 @media (max-width: 820px) {
@@ -863,8 +1300,15 @@ img {
     padding-bottom: 82px;
   }
 
+  .screen-section,
+  .guide-section,
+  .essentials-section {
+    padding: 82px var(--page-x);
+  }
+
   .section-heading,
-  .catalog-toolbar {
+  .catalog-toolbar,
+  .block-head {
     align-items: flex-start;
     flex-direction: column;
   }
@@ -893,6 +1337,42 @@ img {
     grid-template-columns: 1fr;
   }
 
+  .guide-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 230px;
+  }
+
+  .guide-card,
+  .guide-card--wide {
+    grid-column: auto;
+  }
+
+  .guide-card--hero {
+    grid-column: 1 / -1;
+    grid-row: span 2;
+  }
+
+  .essentials-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 180px;
+  }
+
+  .essential-card,
+  .essential-card--clock,
+  .essential-card--weather,
+  .essential-card--rates,
+  .essential-card--visa,
+  .essential-card--emergency,
+  .essential-card--transport,
+  .essential-card--languages {
+    grid-column: auto;
+  }
+
+  .essential-card--clock,
+  .essential-card--rates {
+    grid-row: span 2;
+  }
+
   .site-footer {
     grid-template-columns: 1fr 1fr;
   }
@@ -913,7 +1393,8 @@ img {
 
   .hero h1,
   .section-heading h2,
-  .inner-hero h1 {
+  .inner-hero h1,
+  .block-head h2 {
     font-size: 44px;
   }
 
@@ -924,6 +1405,57 @@ img {
   .section {
     padding-top: 68px;
     padding-bottom: 68px;
+  }
+
+  .screen-section,
+  .guide-section,
+  .essentials-section {
+    padding: 68px var(--page-x);
+  }
+
+  .video-slide {
+    min-width: 86vw;
+  }
+
+  .video-play {
+    width: 58px;
+    height: 58px;
+  }
+
+  .block-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .guide-grid,
+  .essentials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .guide-card,
+  .guide-card--hero,
+  .guide-card--wide {
+    grid-column: auto;
+    grid-row: auto;
+    min-height: 260px;
+  }
+
+  .essential-card,
+  .essential-card--clock,
+  .essential-card--weather,
+  .essential-card--rates,
+  .essential-card--visa,
+  .essential-card--emergency,
+  .essential-card--transport,
+  .essential-card--languages {
+    grid-column: auto;
+    grid-row: auto;
+    min-height: 180px;
+  }
+
+  .essential-card--clock,
+  .essential-card--rates {
+    min-height: 280px;
   }
 
   .nav-panel {
