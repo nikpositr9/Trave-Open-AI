@@ -3361,6 +3361,10 @@ body.lightbox-open {
 }
 
 /* ===== Каталог туров в стиле референса ===== */
+.section-wide {
+  margin-right: 0;
+  margin-left: 0;
+}
 .tour-group-head {
   display: block;
   margin: 0 var(--page-x) 24px;
