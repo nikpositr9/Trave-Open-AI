@@ -13,6 +13,12 @@ const tourSliderTrack = document.querySelector("[data-tour-slider-track]");
 const tourSliderPrevious = document.querySelector("[data-tour-slider-prev]");
 const tourSliderNext = document.querySelector("[data-tour-slider-next]");
 const tourSliderCurrent = document.querySelector("[data-tour-slider-current]");
+const contactMethodInputs = document.querySelectorAll(
+  'input[name="contact_method"]',
+);
+const contactInput = document.querySelector("[data-contact-input]");
+const contactLabel = document.querySelector("[data-contact-label]");
+const tourDateInput = document.querySelector("[data-tour-date]");
 let toastTimer;
 let activeLightboxTrigger;
 let tourSlideIndex = 0;
@@ -126,6 +132,49 @@ tourLightbox?.addEventListener("click", (event) => {
   if (event.target === tourLightbox) closeTourLightbox();
 });
 
+const contactSettings = {
+  whatsapp: {
+    label: "Номер WhatsApp",
+    placeholder: "+373 60 000 000",
+    type: "tel",
+    autocomplete: "tel",
+    inputmode: "tel",
+  },
+  telegram: {
+    label: "Telegram",
+    placeholder: "@username или номер телефона",
+    type: "text",
+    autocomplete: "off",
+    inputmode: "text",
+  },
+  email: {
+    label: "Email",
+    placeholder: "name@example.com",
+    type: "email",
+    autocomplete: "email",
+    inputmode: "email",
+  },
+};
+
+function updateContactField(method) {
+  if (!contactInput || !contactLabel) return;
+  const settings = contactSettings[method] || contactSettings.whatsapp;
+
+  contactLabel.textContent = settings.label;
+  contactInput.type = settings.type;
+  contactInput.placeholder = settings.placeholder;
+  contactInput.autocomplete = settings.autocomplete;
+  contactInput.inputMode = settings.inputmode;
+}
+
+contactMethodInputs.forEach((input) => {
+  input.addEventListener("change", () => updateContactField(input.value));
+});
+
+if (tourDateInput) {
+  tourDateInput.min = new Date().toISOString().slice(0, 10);
+}
+
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
     setMenu(false);
@@ -138,6 +187,12 @@ document.querySelectorAll("[data-demo-form]").forEach((form) => {
     event.preventDefault();
     notify("Демонстрационная форма. Отправку подключим следующим этапом.");
     form.reset();
+    window.requestAnimationFrame(() => {
+      const selectedMethod = form.querySelector(
+        'input[name="contact_method"]:checked',
+      );
+      if (selectedMethod) updateContactField(selectedMethod.value);
+    });
   });
 });
 
