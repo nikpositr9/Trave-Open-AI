@@ -430,6 +430,7 @@ img {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   grid-auto-rows: 240px;
   gap: 16px;
+  width: 100%;
 }
 
 .tour-card {
@@ -3129,13 +3130,13 @@ body.lightbox-open {
 }
 .event-track::-webkit-scrollbar { display: none; }
 .event-card {
-  flex: 0 0 clamp(260px, 22vw, 320px);
+  flex: 0 0 calc((100% - 5 * 18px) / 6);
   scroll-snap-align: start;
 }
 .event-card {
   display: flex;
   flex-direction: column;
-  min-height: 440px;
+  min-height: 300px;
   padding: 22px;
   border-radius: var(--radius-lg);
   background: var(--panel-soft);
@@ -3311,3 +3312,16 @@ body.lightbox-open {
 @media (max-width: 860px) {
   .transfer-grid { grid-template-columns: 1fr; gap: 28px; }
 }
+
+
+/* ===== Туры во всю ширину экрана ===== */
+.section-wide { padding-left: 0; padding-right: 0; }
+.section-wide .section-heading,
+.section-wide .catalog-action { padding-left: var(--page-x); padding-right: var(--page-x); }
+.section-wide .tour-group { padding-left: var(--page-x); padding-right: var(--page-x); }
+
+
+/* события: адаптив числа карточек */
+@media (max-width: 1200px) { .event-card { flex-basis: calc((100% - 3 * 18px) / 4); } }
+@media (max-width: 760px)  { .event-card { flex-basis: calc((100% - 2 * 18px) / 3); } }
+@media (max-width: 520px)  { .event-card { flex-basis: 78vw; } }
