@@ -1177,6 +1177,107 @@ img {
   letter-spacing: -0.065em;
 }
 
+.tour-section-intro {
+  max-width: 780px;
+  margin: 28px 0 0;
+  color: var(--muted);
+  font-size: clamp(18px, 1.8vw, 25px);
+  line-height: 1.35;
+}
+
+.tour-photo-story {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-auto-rows: 330px;
+  gap: 16px;
+}
+
+.tour-photo-card {
+  position: relative;
+  grid-column: span 4;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--panel);
+  color: var(--white);
+}
+
+.tour-photo-card--hero {
+  grid-column: span 8;
+}
+
+.tour-photo-card--portrait {
+  grid-column: span 4;
+}
+
+.tour-photo-card--wide {
+  grid-column: span 8;
+}
+
+.tour-photo-card img {
+  height: 100%;
+  object-fit: cover;
+  transition: transform 500ms ease;
+}
+
+.tour-photo-card--portrait img {
+  object-position: center 46%;
+}
+
+.tour-photo-card:hover img {
+  transform: scale(1.035);
+}
+
+.tour-photo-card::after {
+  content: "";
+  position: absolute;
+  inset: 24% 0 0;
+  background: linear-gradient(transparent, rgba(1, 3, 14, 0.92));
+}
+
+.tour-photo-card__copy {
+  position: absolute;
+  z-index: 2;
+  right: 24px;
+  bottom: 22px;
+  left: 24px;
+}
+
+.tour-photo-card__copy > span {
+  display: block;
+  margin-bottom: 9px;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.tour-photo-card__copy h3 {
+  max-width: 640px;
+  margin: 0;
+  font-size: clamp(25px, 2.7vw, 42px);
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+}
+
+.tour-photo-card__copy p {
+  max-width: 620px;
+  margin: 10px 0 0;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 13px;
+}
+
+.photo-credits {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.photo-credits a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 .travel-highlights {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1308,6 +1409,38 @@ img {
   font-weight: 500;
 }
 
+.tour-day-facts {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.tour-day-facts > div {
+  min-height: 104px;
+  padding: 18px;
+  border-radius: var(--radius-sm);
+  background: var(--ink);
+  color: var(--white);
+}
+
+.tour-day-facts span,
+.tour-day-facts strong {
+  display: block;
+}
+
+.tour-day-facts span {
+  margin-bottom: 24px;
+  color: #8f96a1;
+  font-size: 10px;
+}
+
+.tour-day-facts strong {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
 .program-list {
   overflow: hidden;
   border: 1px solid var(--line);
@@ -1356,6 +1489,13 @@ img {
   margin: 12px 0 0;
   color: var(--muted);
   font-size: 14px;
+}
+
+.program-copy small {
+  display: block;
+  margin-top: 12px;
+  color: var(--ink);
+  font-size: 11px;
 }
 
 .program-note {
@@ -2027,6 +2167,19 @@ img {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .tour-photo-card {
+    grid-column: span 6;
+  }
+
+  .tour-photo-card--hero,
+  .tour-photo-card--wide {
+    grid-column: span 12;
+  }
+
+  .tour-day-facts {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .highlight-card--large,
   .highlight-card--wide {
     grid-column: span 2;
@@ -2296,6 +2449,44 @@ img {
 
   .tour-section-heading {
     margin-bottom: 36px;
+  }
+
+  .tour-section-intro {
+    margin-top: 20px;
+    font-size: 17px;
+  }
+
+  .tour-photo-story {
+    grid-auto-rows: 320px;
+  }
+
+  .tour-photo-card,
+  .tour-photo-card--hero,
+  .tour-photo-card--portrait,
+  .tour-photo-card--wide {
+    grid-column: span 12;
+  }
+
+  .tour-photo-card--portrait {
+    height: 390px;
+  }
+
+  .tour-photo-card__copy {
+    right: 18px;
+    bottom: 18px;
+    left: 18px;
+  }
+
+  .tour-photo-card__copy h3 {
+    font-size: 29px;
+  }
+
+  .tour-day-facts {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .tour-day-facts > div:last-child {
+    grid-column: 1 / -1;
   }
 
   .travel-highlights {
