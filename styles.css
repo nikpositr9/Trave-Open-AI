@@ -3283,3 +3283,31 @@ body.lightbox-open {
 @media (max-width: 560px) {
   .video-modal-close { top: -50px; right: 0; }
 }
+
+
+/* ===== Трансфер ===== */
+.transfer-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.transfer-media {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--panel);
+}
+.transfer-media img { width: 100%; height: 100%; object-fit: cover; }
+.transfer-copy h2 { margin: 6px 0 18px; font-size: clamp(28px, 3.2vw, 42px); letter-spacing: -0.03em; }
+.transfer-lead { font-size: 16px; color: var(--muted); line-height: 1.55; }
+.transfer-list { margin: 26px 0 30px; padding: 0; list-style: none; display: grid; gap: 14px; }
+.transfer-list li { position: relative; padding-left: 26px; font-size: 15px; }
+.transfer-list li::before {
+  content: "";
+  position: absolute; left: 0; top: 8px;
+  width: 8px; height: 8px; border-radius: 999px; background: var(--rose);
+}
+@media (max-width: 860px) {
+  .transfer-grid { grid-template-columns: 1fr; gap: 28px; }
+}
