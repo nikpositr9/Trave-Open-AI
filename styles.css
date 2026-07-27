@@ -3359,3 +3359,114 @@ body.lightbox-open {
 .section-wide .tour-group + .tour-group {
   margin-top: 44px;
 }
+
+/* ===== Каталог туров в стиле референса ===== */
+.tour-group-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+  margin: 0 var(--page-x) 24px;
+}
+
+.section-wide .tour-group-title {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: clamp(28px, 3vw, 42px);
+}
+
+.tour-group-description {
+  max-width: 520px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.section-wide .tour-grid--mosaic {
+  grid-template-columns: minmax(320px, 1.18fr) repeat(4, minmax(210px, 1fr));
+  grid-template-rows: repeat(2, clamp(210px, 13vw, 250px));
+  grid-auto-rows: clamp(210px, 13vw, 250px);
+  grid-auto-flow: row;
+  width: 100vw;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: none;
+}
+
+.section-wide .tour-grid--mosaic::-webkit-scrollbar,
+.section-wide .tour-grid--row::-webkit-scrollbar {
+  display: none;
+}
+
+.section-wide .tour-grid--mosaic .tour-card:first-child {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+}
+
+.section-wide .tour-grid--mosaic .tour-card:last-child {
+  grid-column: span 2;
+  grid-row: auto;
+}
+
+.section-wide .tour-grid--row {
+  grid-template-columns: repeat(4, minmax(250px, 1fr));
+  grid-auto-rows: clamp(240px, 18vw, 310px);
+  width: 100vw;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: none;
+}
+
+.section-wide .tour-grid--row .tour-card:first-child,
+.section-wide .tour-grid--row .tour-card:last-child {
+  grid-column: auto;
+  grid-row: auto;
+}
+
+.section-wide .tour-group + .tour-group {
+  margin-top: 64px;
+}
+
+@media (max-width: 1180px) {
+  .section-wide .tour-grid--mosaic {
+    grid-template-columns: 320px repeat(4, 280px);
+  }
+
+  .section-wide .tour-grid--row {
+    grid-template-columns: repeat(4, 300px);
+  }
+}
+
+@media (max-width: 700px) {
+  .tour-group-head {
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .tour-group-description {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+
+  .section-wide .tour-grid--mosaic,
+  .section-wide .tour-grid--row {
+    display: flex;
+    gap: 12px;
+    width: 100vw;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+  }
+
+  .section-wide .tour-grid--mosaic .tour-card,
+  .section-wide .tour-grid--row .tour-card {
+    flex: 0 0 82vw;
+    min-height: 300px;
+    scroll-snap-align: start;
+  }
+
+  .section-wide .tour-group + .tour-group {
+    margin-top: 48px;
+  }
+}
