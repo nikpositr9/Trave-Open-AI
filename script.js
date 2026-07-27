@@ -307,6 +307,37 @@ function scrollEvents(direction) {
 eventPrevious?.addEventListener("click", () => scrollEvents(-1));
 eventNext?.addEventListener("click", () => scrollEvents(1));
 
+// ===== Видео в модальном окне =====
+const videoModal = document.querySelector("[data-video-modal]");
+const videoFrame = document.querySelector("[data-video-frame]");
+
+function openVideo(id) {
+  if (!videoModal || !videoFrame) return;
+  videoFrame.innerHTML =
+    '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/' +
+    id +
+    '?autoplay=1&rel=0" title="Видео" frameborder="0" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>';
+  videoModal.hidden = false;
+  document.body.style.overflow = "hidden";
+}
+
+function closeVideo() {
+  if (!videoModal || !videoFrame) return;
+  videoModal.hidden = true;
+  videoFrame.innerHTML = "";
+  document.body.style.overflow = "";
+}
+
+document.querySelectorAll("[data-video-id]").forEach((card) => {
+  card.addEventListener("click", () => openVideo(card.getAttribute("data-video-id")));
+});
+document.querySelectorAll("[data-video-close]").forEach((el) => {
+  el.addEventListener("click", closeVideo);
+});
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeVideo();
+});
+
 const clock = document.querySelector("[data-chisinau-clock]");
 const chisinauTime = new Intl.DateTimeFormat("ru-RU", {
   timeZone: "Europe/Chisinau",
