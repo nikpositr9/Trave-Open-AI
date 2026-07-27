@@ -8,7 +8,7 @@
       content="Авторские однодневные и двухдневные путешествия по Молдове для гостей страны и местных жителей."
     />
     <title>Travel MD — путешествия по Молдове</title>
-    <link rel="stylesheet" href="./styles.css?v=20260727-14" />
+    <link rel="stylesheet" href="./styles.css?v=20260727-15" />
   </head>
   <body>
     <header class="site-header">
@@ -64,11 +64,27 @@
 
     <main>
       <section class="hero">
-        <div class="hero-media">
+        <div class="hero-media hero-slides" aria-label="Пейзажи Молдовы">
           <img
-            src="./assets/tours/orhei.svg"
-            alt="Панорама Старого Орхея и реки Реут"
+            class="hero-slide hero-slide--1"
+            src="https://commons.wikimedia.org/wiki/Special:FilePath/Orheiul%20Vechi%20panorama.jpg?width=2200"
+            alt="Панорама Старого Орхея и долины Реута"
             fetchpriority="high"
+          />
+          <img
+            class="hero-slide hero-slide--2"
+            src="https://commons.wikimedia.org/wiki/Special:FilePath/Soroca%20Fortress%2C%20view%20from%20the%20city.jpg?width=2200"
+            alt="Сорокская крепость у Днестра"
+          />
+          <img
+            class="hero-slide hero-slide--3"
+            src="https://commons.wikimedia.org/wiki/Special:FilePath/Panoram%C4%83%20parcul%20%E2%80%9EValea%20Morilor%E2%80%9D%20vedere%20din%20Turnul%20de%20Ap%C4%83.jpg?width=2200"
+            alt="Панорама парка Валя-Морилор в Кишинёве"
+          />
+          <img
+            class="hero-slide hero-slide--4"
+            src="https://commons.wikimedia.org/wiki/Special:FilePath/Cricova%20Winery%20-%20Moldova%20(by%20David%20Stanley).jpg?width=1800"
+            alt="Подземные галереи Крикова"
           />
         </div>
         <div class="hero-content">
@@ -81,35 +97,9 @@
             >Смотреть путешествия <span class="button-arrow">›</span></a
           >
         </div>
-        <aside class="hero-review" aria-label="Отзывы о Travel MD">
-          <span class="hero-review-label">Люди о Travel MD</span>
-          <div
-            class="avatar-stack"
-            role="img"
-            aria-label="Места для фотографий гостей"
-          >
-            <i></i><i></i><i></i><i></i><i></i>
-          </div>
-          <strong>Отзывы появятся после запуска</strong>
-          <p>
-            Здесь будут реальные впечатления гостей, фотографии и короткие
-            истории из путешествий.
-          </p>
-          <a class="text-link" href="#about">О проекте</a>
-        </aside>
       </section>
 
       <section class="section section-white section-wide" id="tours">
-        <div class="section-heading section-heading--stacked">
-          <div>
-            <h2>Наши путешествия</h2>
-            <p class="section-intro">
-              Направления сгруппированы по типу отдыха. Точный состав, даты
-              и цены заполним на следующем этапе.
-            </p>
-          </div>
-        </div>
-
         <div class="tour-group">
           <div class="tour-group-head">
             <h3 class="tour-group-title">Экскурсии по Молдове</h3>
@@ -120,7 +110,7 @@
           </div>
           <div class="tour-grid tour-grid--mosaic">
           <a class="tour-card" href="#contact">
-            <img src="./assets/tours/bender.svg" alt="Тирасполь и Приднестровье" loading="lazy" />
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/The%20pleasant%20streets%20of%20Tiraspol%2C%20Transnistria%20(16164852697).jpg?width=1800" alt="Тирасполь и Приднестровье" loading="lazy" />
             <span class="tour-meta">01 / 8</span>
             <div class="tour-copy">
               <strong>Тирасполь и Приднестровье</strong>
@@ -129,7 +119,7 @@
           </a>
 
           <a class="tour-card" href="#contact">
-            <img src="./assets/tours/orhei.svg" alt="Старый Орхей" loading="lazy" />
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Orhei%20Moldova%20Orheiul%20Vechi.jpg?width=1800" alt="Старый Орхей" loading="lazy" />
             <span class="tour-meta">02 / 8</span>
             <div class="tour-copy">
               <strong>Старый Орхей</strong>
@@ -138,7 +128,7 @@
           </a>
 
           <a class="tour-card" href="#contact">
-            <img src="./assets/tours/tipova.svg" alt="Цыпова" loading="lazy" />
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/%C8%9Aipova%20Monastery%2008.jpg?width=1800" alt="Цыпова" loading="lazy" />
             <span class="tour-meta">03 / 8</span>
             <div class="tour-copy">
               <strong>Цыпова</strong>
@@ -147,7 +137,7 @@
           </a>
 
           <a class="tour-card" href="#contact">
-            <img src="./assets/tours/saharna.svg" alt="Сахарна" loading="lazy" />
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Small%20waterfall%20nearby%20saharna%20monastery.jpg?width=1800" alt="Сахарна" loading="lazy" />
             <span class="tour-meta">04 / 8</span>
             <div class="tour-copy">
               <strong>Сахарна</strong>
@@ -156,7 +146,7 @@
           </a>
 
           <a class="tour-card" href="#contact">
-            <img src="./assets/tours/comrat.svg" alt="Гагаузия" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&amp;fit=crop&amp;w=1600&amp;q=84" alt="Гагаузия" loading="lazy" />
             <span class="tour-meta">05 / 8</span>
             <div class="tour-copy">
               <strong>Гагаузия</strong>
@@ -165,7 +155,7 @@
           </a>
 
           <a class="tour-card" href="#contact">
-            <img src="./assets/tours/soroca.svg" alt="Сороки" loading="lazy" />
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Soroca%20Fortress%2C%20view%20from%20the%20city.jpg?width=1800" alt="Сороки" loading="lazy" />
             <span class="tour-meta">06 / 8</span>
             <div class="tour-copy">
               <strong>Сороки</strong>
@@ -174,7 +164,7 @@
           </a>
 
           <a class="tour-card" href="#contact">
-            <img src="./assets/tours/chisinau.svg" alt="Прогулка по Кишинёву" loading="lazy" />
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Chisinau%20(067).jpg?width=1800" alt="Прогулка по Кишинёву" loading="lazy" />
             <span class="tour-meta">07 / 8</span>
             <div class="tour-copy">
               <strong>Прогулка по Кишинёву</strong>
@@ -183,7 +173,7 @@
           </a>
 
           <a class="tour-card" href="#contact">
-            <img src="./assets/tours/tipova.svg" alt="Экскурсия по пещерам" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&amp;fit=crop&amp;w=1600&amp;q=84" alt="Экскурсия по пещерам" loading="lazy" />
             <span class="tour-meta">08 / 8</span>
             <div class="tour-copy">
               <strong>Экскурсия по пещерам</strong>
@@ -203,7 +193,7 @@
           </div>
           <div class="tour-grid tour-grid--row">
           <a class="tour-card" href="#contact">
-            <img src="./assets/tours/padurea.svg" alt="Cricova" loading="lazy" />
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Cricova%20Winery%20-%20Moldova%20(by%20David%20Stanley).jpg?width=1800" alt="Cricova" loading="lazy" />
             <span class="tour-meta">01 / 4</span>
             <div class="tour-copy">
               <strong>Cricova</strong>
@@ -212,7 +202,7 @@
           </a>
 
           <a class="tour-card" href="#contact">
-            <img src="./assets/tours/beleu.svg" alt="Purcari" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&amp;fit=crop&amp;w=1600&amp;q=84" alt="Purcari" loading="lazy" />
             <span class="tour-meta">02 / 4</span>
             <div class="tour-copy">
               <strong>Purcari</strong>
@@ -221,7 +211,7 @@
           </a>
 
           <a class="tour-card" href="#contact">
-            <img src="./assets/tours/capriana.svg" alt="Et Cetera" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1473973266408-ed4e27abdd47?auto=format&amp;fit=crop&amp;w=1600&amp;q=84" alt="Et Cetera" loading="lazy" />
             <span class="tour-meta">03 / 4</span>
             <div class="tour-copy">
               <strong>Et Cetera</strong>
@@ -230,7 +220,7 @@
           </a>
 
           <a class="tour-card" href="#contact">
-            <img src="./assets/tours/padurea.svg" alt="Castel Mimi" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd4298?auto=format&amp;fit=crop&amp;w=1600&amp;q=84" alt="Castel Mimi" loading="lazy" />
             <span class="tour-meta">04 / 4</span>
             <div class="tour-copy">
               <strong>Castel Mimi</strong>
@@ -250,7 +240,7 @@
           </div>
           <div class="tour-grid tour-grid--row">
           <a class="tour-card" href="#contact">
-            <img src="./assets/tours/beleu.svg" alt="Вейксёрфинг и вейкбординг" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&amp;fit=crop&amp;w=1600&amp;q=84" alt="Вейксёрфинг и вейкбординг" loading="lazy" />
             <span class="tour-meta">01 / 4</span>
             <div class="tour-copy">
               <strong>Вейксёрфинг и вейкбординг</strong>
@@ -259,7 +249,7 @@
           </a>
 
           <a class="tour-card" href="#contact">
-            <img src="./assets/tours/padurea.svg" alt="Квадроциклы и эндуро" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&amp;fit=crop&amp;w=1600&amp;q=84" alt="Квадроциклы и эндуро" loading="lazy" />
             <span class="tour-meta">02 / 4</span>
             <div class="tour-copy">
               <strong>Квадроциклы и эндуро</strong>
@@ -268,7 +258,7 @@
           </a>
 
           <a class="tour-card" href="#contact">
-            <img src="./assets/tours/capriana.svg" alt="Конные прогулки" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?auto=format&amp;fit=crop&amp;w=1600&amp;q=84" alt="Конные прогулки" loading="lazy" />
             <span class="tour-meta">03 / 4</span>
             <div class="tour-copy">
               <strong>Конные прогулки</strong>
@@ -277,7 +267,7 @@
           </a>
 
           <a class="tour-card" href="#contact">
-            <img src="./assets/tours/soroca.svg" alt="Джип-туры" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&amp;fit=crop&amp;w=1600&amp;q=84" alt="Джип-туры" loading="lazy" />
             <span class="tour-meta">04 / 4</span>
             <div class="tour-copy">
               <strong>Джип-туры</strong>
@@ -307,7 +297,7 @@
         <div class="advantages-grid">
           <article class="advantage-card advantage-card--access">
             <img
-              src="./assets/tours/bender.svg"
+              src="https://commons.wikimedia.org/wiki/Special:FilePath/Orhei%20Moldova%20Orheiul%20Vechi.jpg?width=1800"
               alt="Необычные места Молдовы"
               loading="lazy"
             />
@@ -324,7 +314,7 @@
 
           <article class="advantage-card advantage-card--transfer">
             <img
-              src="./assets/tours/chisinau.svg"
+              src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&amp;fit=crop&amp;w=1600&amp;q=84"
               alt="Комфортный индивидуальный трансфер"
               loading="lazy"
             />
@@ -341,7 +331,7 @@
 
           <article class="advantage-card">
             <img
-              src="./assets/tours/orhei.svg"
+              src="https://images.unsplash.com/photo-1473445361085-b9a07f55608b?auto=format&amp;fit=crop&amp;w=1600&amp;q=84"
               alt="Индивидуальный маршрут по Молдове"
               loading="lazy"
             />
@@ -357,7 +347,7 @@
 
           <article class="advantage-card">
             <img
-              src="./assets/tours/padurea.svg"
+              src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd4298?auto=format&amp;fit=crop&amp;w=1600&amp;q=84"
               alt="Спокойное путешествие без туристических толп"
               loading="lazy"
             />
@@ -437,7 +427,7 @@
                 alt="Обложка видео о лучших местах Молдовы"
                 loading="lazy"
               />
-              <span class="video-play" aria-hidden="true">▶</span>
+              <span class="video-play" aria-hidden="true"></span>
             </div>
             <strong>15 Best Places to Visit in Moldova</strong>
           </button>
@@ -449,7 +439,7 @@
                 alt="Обложка видео о Приднестровье"
                 loading="lazy"
               />
-              <span class="video-play" aria-hidden="true">▶</span>
+              <span class="video-play" aria-hidden="true"></span>
             </div>
             <strong>I Went to a Country That Doesn't Exist</strong>
           </button>
@@ -461,7 +451,7 @@
                 alt="Обложка видео о путешествии по Приднестровью"
                 loading="lazy"
               />
-              <span class="video-play" aria-hidden="true">▶</span>
+              <span class="video-play" aria-hidden="true"></span>
             </div>
             <strong>50 Hours in a Country That Doesn't Exist on a Map</strong>
           </button>
@@ -473,7 +463,7 @@
                 alt="Обложка видео о Старом Орхее"
                 loading="lazy"
               />
-              <span class="video-play" aria-hidden="true">▶</span>
+              <span class="video-play" aria-hidden="true"></span>
             </div>
             <strong>The Most Beautiful Place in Moldova</strong>
           </button>
@@ -485,7 +475,7 @@
                 alt="Обложка видео об Орхее, Наславче и Сороках"
                 loading="lazy"
               />
-              <span class="video-play" aria-hidden="true">▶</span>
+              <span class="video-play" aria-hidden="true"></span>
             </div>
             <strong>Orheiul Vechi, Naslavcea &amp; Soroca</strong>
           </button>
@@ -497,7 +487,7 @@
                 alt="Обложка видео о жизни в Молдове"
                 loading="lazy"
               />
-              <span class="video-play" aria-hidden="true">▶</span>
+              <span class="video-play" aria-hidden="true"></span>
             </div>
             <strong>Be Our Guest in Moldova</strong>
           </button>
@@ -509,7 +499,7 @@
                 alt="Обложка фильма о Молдове"
                 loading="lazy"
               />
-              <span class="video-play" aria-hidden="true">▶</span>
+              <span class="video-play" aria-hidden="true"></span>
             </div>
             <strong>Un suflet. O inimă. Moldova.</strong>
           </button>
@@ -521,7 +511,7 @@
                 alt="Обложка путешествия по Молдове"
                 loading="lazy"
               />
-              <span class="video-play" aria-hidden="true">▶</span>
+              <span class="video-play" aria-hidden="true"></span>
             </div>
             <strong>Молдова: взгляд путешественника</strong>
           </button>
@@ -533,7 +523,7 @@
                 alt="Обложка видео об Asconi"
                 loading="lazy"
               />
-              <span class="video-play" aria-hidden="true">▶</span>
+              <span class="video-play" aria-hidden="true"></span>
             </div>
             <strong>Asconi Winery</strong>
           </button>
@@ -545,7 +535,7 @@
                 alt="Обложка видео о Кишинёве с высоты"
                 loading="lazy"
               />
-              <span class="video-play" aria-hidden="true">▶</span>
+              <span class="video-play" aria-hidden="true"></span>
             </div>
             <strong>Chisinau, Moldova in 4K Ultra HD</strong>
           </button>
@@ -557,7 +547,7 @@
                 alt="Обложка видео о подземном городе Крикова"
                 loading="lazy"
               />
-              <span class="video-play" aria-hidden="true">▶</span>
+              <span class="video-play" aria-hidden="true"></span>
             </div>
             <strong>Underground City of Cricova</strong>
           </button>
@@ -569,7 +559,7 @@
                 alt="Обложка видео о Милештий Мичь"
                 loading="lazy"
               />
-              <span class="video-play" aria-hidden="true">▶</span>
+              <span class="video-play" aria-hidden="true"></span>
             </div>
             <strong>The Biggest Wine Cellar in the World</strong>
           </button>
@@ -586,7 +576,7 @@
       <section class="screen-section events-section" id="events">
         <div class="block-head events-head">
           <div class="events-heading-copy">
-            <h2>Ближайшие события<br />в Молдове</h2>
+            <h2>Ближайшие события в Молдове</h2>
             <p class="events-lead">
               Концерты, фестивали, выставки и идеи для свободного дня.
             </p>
@@ -599,7 +589,7 @@
 
         <div class="event-track" data-event-track>
           <a class="event-card ev-lime" href="./events/letniy-koncert.html">
-            <img class="event-image" src="./assets/tours/chisinau.svg" alt="Летний концерт в Кишинёве" loading="lazy" />
+            <img class="event-image" src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&amp;fit=crop&amp;w=1600&amp;q=84" alt="Летний концерт в Кишинёве" loading="lazy" />
             <div class="event-top">
               <div class="event-date">
                 <strong>09</strong>
@@ -619,7 +609,7 @@
           </a>
 
           <a class="event-card ev-peach" href="./events/festival-tradiciy.html">
-            <img class="event-image" src="./assets/tours/orhei.svg" alt="Фестиваль традиций в Старом Орхее" loading="lazy" />
+            <img class="event-image" src="https://commons.wikimedia.org/wiki/Special:FilePath/Orheiul%20Vechi%20Moldova.jpg?width=1800" alt="Фестиваль традиций в Старом Орхее" loading="lazy" />
             <div class="event-top">
               <div class="event-date">
                 <strong>16</strong>
@@ -639,7 +629,7 @@
           </a>
 
           <a class="event-card ev-sky" href="./events/sovremennaya-moldova.html">
-            <img class="event-image" src="./assets/tours/chisinau.svg" alt="Современный Кишинёв" loading="lazy" />
+            <img class="event-image" src="https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format&amp;fit=crop&amp;w=1600&amp;q=84" alt="Современный Кишинёв" loading="lazy" />
             <div class="event-top">
               <div class="event-date">
                 <strong>28</strong>
@@ -659,7 +649,7 @@
           </a>
 
           <a class="event-card ev-lilac" href="./events/festival-edy.html">
-            <img class="event-image" src="./assets/tours/comrat.svg" alt="Фестиваль локальной кухни" loading="lazy" />
+            <img class="event-image" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&amp;fit=crop&amp;w=1600&amp;q=84" alt="Фестиваль локальной кухни" loading="lazy" />
             <div class="event-top">
               <div class="event-date">
                 <strong>06</strong>
@@ -679,7 +669,7 @@
           </a>
 
           <a class="event-card ev-lime" href="./events/vecher-klassiki.html">
-            <img class="event-image" src="./assets/tours/capriana.svg" alt="Вечер классической музыки" loading="lazy" />
+            <img class="event-image" src="https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&amp;fit=crop&amp;w=1600&amp;q=84" alt="Вечер классической музыки" loading="lazy" />
             <div class="event-top">
               <div class="event-date">
                 <strong>19</strong>
@@ -699,7 +689,7 @@
           </a>
 
           <a class="event-card ev-peach" href="./events/prazdnik-vina.html">
-            <img class="event-image" src="./assets/tours/beleu.svg" alt="Праздник молдавского вина" loading="lazy" />
+            <img class="event-image" src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&amp;fit=crop&amp;w=1600&amp;q=84" alt="Праздник молдавского вина" loading="lazy" />
             <div class="event-top">
               <div class="event-date">
                 <strong>03</strong>
@@ -719,7 +709,7 @@
           </a>
 
           <a class="event-card ev-sky" href="./events/osenniy-dzhaz.html">
-            <img class="event-image" src="./assets/tours/saharna.svg" alt="Осенний музыкальный фестиваль" loading="lazy" />
+            <img class="event-image" src="https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&amp;fit=crop&amp;w=1600&amp;q=84" alt="Осенний музыкальный фестиваль" loading="lazy" />
             <div class="event-top">
               <div class="event-date">
                 <strong>11</strong>
@@ -739,7 +729,7 @@
           </a>
 
           <a class="event-card ev-lilac" href="./events/remesla-moldovy.html">
-            <img class="event-image" src="./assets/tours/soroca.svg" alt="Традиционные ремёсла Молдовы" loading="lazy" />
+            <img class="event-image" src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&amp;fit=crop&amp;w=1600&amp;q=84" alt="Традиционные ремёсла Молдовы" loading="lazy" />
             <div class="event-top">
               <div class="event-date">
                 <strong>18</strong>
@@ -759,7 +749,7 @@
           </a>
 
           <a class="event-card ev-lime" href="./events/horovoy-vecher.html">
-            <img class="event-image" src="./assets/tours/capriana.svg" alt="Хоровой вечер в старинном соборе" loading="lazy" />
+            <img class="event-image" src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&amp;fit=crop&amp;w=1600&amp;q=84" alt="Хоровой вечер в старинном соборе" loading="lazy" />
             <div class="event-top">
               <div class="event-date">
                 <strong>25</strong>
@@ -779,7 +769,7 @@
           </a>
 
           <a class="event-card ev-peach" href="./events/noch-muzeev.html">
-            <img class="event-image" src="./assets/tours/chisinau.svg" alt="Ночь музеев в Кишинёве" loading="lazy" />
+            <img class="event-image" src="https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?auto=format&amp;fit=crop&amp;w=1600&amp;q=84" alt="Ночь музеев в Кишинёве" loading="lazy" />
             <div class="event-top">
               <div class="event-date">
                 <strong>07</strong>
@@ -941,7 +931,7 @@
       </div>
       <div class="footer-bottom">
         <span>© 2026 Travel MD</span>
-        <span>Тестовая версия сайта</span>
+        <span>Тестовая версия сайта · Фото: Wikimedia Commons и Unsplash</span>
       </div>
     </footer>
 
