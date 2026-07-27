@@ -3331,3 +3331,31 @@ body.lightbox-open {
 @media (max-width: 1200px) { .event-card { flex-basis: calc((100% - 3 * 22px) / 4); } }
 @media (max-width: 760px)  { .event-card { flex-basis: calc((100% - 2 * 22px) / 3); } }
 @media (max-width: 520px)  { .event-card { flex-basis: 78vw; } }
+
+/* ===== Полноширинный компактный каталог туров ===== */
+.section-wide {
+  padding-right: 0;
+  padding-left: 0;
+  overflow: hidden;
+}
+
+.section-wide > .section-heading,
+.section-wide .tour-group-title,
+.section-wide > .catalog-action {
+  margin-right: var(--page-x);
+  margin-left: var(--page-x);
+}
+
+.section-wide .tour-grid {
+  width: 100vw;
+}
+
+.section-wide .tour-card:first-child,
+.section-wide .tour-card:last-child {
+  grid-column: auto;
+  grid-row: auto;
+}
+
+.section-wide .tour-group + .tour-group {
+  margin-top: 44px;
+}
