@@ -3,7 +3,13 @@ const menuButton = document.querySelector("[data-menu-open]");
 const closeButton = document.querySelector("[data-menu-close]");
 const navPanel = document.querySelector(".nav-panel");
 const toast = document.querySelector(".toast");
+const tourLightbox = document.querySelector("[data-tour-lightbox-modal]");
+const tourLightboxImage = document.querySelector("[data-tour-lightbox-image]");
+const tourLightboxTitle = document.querySelector("[data-tour-lightbox-title]");
+const tourLightboxText = document.querySelector("[data-tour-lightbox-text]");
+const tourLightboxClose = document.querySelector("[data-tour-lightbox-close]");
 let toastTimer;
+let activeLightboxTrigger;
 
 function setMenu(open) {
   body.classList.toggle("nav-open", open);
@@ -28,8 +34,51 @@ navPanel?.addEventListener("click", (event) => {
   }
 });
 
+function openTourLightbox(card) {
+  if (!tourLightbox || !tourLightboxImage) return;
+  const image = card.querySelector("img");
+  const title = card.querySelector("h3")?.textContent || "";
+  const text = card.querySelector("p")?.textContent || "";
+
+  activeLightboxTrigger = card;
+  tourLightboxImage.src = card.href;
+  tourLightboxImage.alt = image?.alt || title;
+  if (tourLightboxTitle) tourLightboxTitle.textContent = title;
+  if (tourLightboxText) tourLightboxText.textContent = text;
+  tourLightbox.inert = false;
+  tourLightbox.setAttribute("aria-hidden", "false");
+  tourLightbox.classList.add("is-open");
+  body.classList.add("lightbox-open");
+  tourLightboxClose?.focus();
+}
+
+function closeTourLightbox() {
+  if (!tourLightbox) return;
+  tourLightbox.classList.remove("is-open");
+  tourLightbox.setAttribute("aria-hidden", "true");
+  tourLightbox.inert = true;
+  body.classList.remove("lightbox-open");
+  activeLightboxTrigger?.focus();
+}
+
+document.querySelectorAll("[data-tour-lightbox]").forEach((card) => {
+  card.addEventListener("click", (event) => {
+    event.preventDefault();
+    openTourLightbox(card);
+  });
+});
+
+tourLightboxClose?.addEventListener("click", closeTourLightbox);
+
+tourLightbox?.addEventListener("click", (event) => {
+  if (event.target === tourLightbox) closeTourLightbox();
+});
+
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") setMenu(false);
+  if (event.key === "Escape") {
+    setMenu(false);
+    closeTourLightbox();
+  }
 });
 
 document.querySelectorAll("[data-demo-form]").forEach((form) => {
