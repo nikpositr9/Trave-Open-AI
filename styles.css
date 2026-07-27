@@ -520,7 +520,6 @@ img {
   background: var(--white);
 }
 
-.screen-section::before,
 .guide-section::before {
   content: "";
   position: absolute;
@@ -576,6 +575,19 @@ img {
   gap: 12px;
 }
 
+.video-head-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.video-count {
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .round-arrow {
   width: 54px;
   height: 54px;
@@ -596,7 +608,7 @@ img {
 
 .video-track {
   display: flex;
-  gap: 20px;
+  gap: 16px;
   overflow-x: auto;
   padding: 4px 2px 14px;
   scroll-behavior: smooth;
@@ -609,7 +621,8 @@ img {
 }
 
 .video-slide {
-  min-width: clamp(320px, 37vw, 530px);
+  flex: 0 0 clamp(240px, 23vw, 330px);
+  min-width: 0;
   scroll-snap-align: start;
 }
 
@@ -644,8 +657,8 @@ img {
   z-index: 2;
   top: 50%;
   left: 50%;
-  width: 70px;
-  height: 70px;
+  width: 58px;
+  height: 58px;
   display: grid;
   place-content: center;
   padding-left: 4px;
@@ -658,9 +671,9 @@ img {
 
 .video-slide > strong {
   display: block;
-  max-width: 500px;
-  margin-top: 16px;
-  font-size: clamp(20px, 2vw, 28px);
+  max-width: 330px;
+  margin-top: 13px;
+  font-size: clamp(16px, 1.35vw, 20px);
   font-weight: 600;
   line-height: 1.02;
   letter-spacing: -0.04em;
@@ -3049,12 +3062,12 @@ body.lightbox-open {
   }
 
   .video-slide {
-    min-width: 86vw;
+    flex-basis: 78vw;
   }
 
   .video-play {
-    width: 58px;
-    height: 58px;
+    width: 52px;
+    height: 52px;
   }
 
   .block-footer {
