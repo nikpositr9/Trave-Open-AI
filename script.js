@@ -8,8 +8,15 @@ const tourLightboxImage = document.querySelector("[data-tour-lightbox-image]");
 const tourLightboxTitle = document.querySelector("[data-tour-lightbox-title]");
 const tourLightboxText = document.querySelector("[data-tour-lightbox-text]");
 const tourLightboxClose = document.querySelector("[data-tour-lightbox-close]");
+const tourSlider = document.querySelector("[data-tour-slider]");
+const tourSliderTrack = document.querySelector("[data-tour-slider-track]");
+const tourSliderPrevious = document.querySelector("[data-tour-slider-prev]");
+const tourSliderNext = document.querySelector("[data-tour-slider-next]");
+const tourSliderCurrent = document.querySelector("[data-tour-slider-current]");
 let toastTimer;
 let activeLightboxTrigger;
+let tourSlideIndex = 0;
+let tourSliderTouchStart = null;
 
 function setMenu(open) {
   body.classList.toggle("nav-open", open);
@@ -67,6 +74,51 @@ document.querySelectorAll("[data-tour-lightbox]").forEach((card) => {
     openTourLightbox(card);
   });
 });
+
+function showTourSlide(index) {
+  if (!tourSliderTrack) return;
+  const slides = tourSliderTrack.querySelectorAll(".tour-photo-card");
+  if (!slides.length) return;
+
+  tourSlideIndex = (index + slides.length) % slides.length;
+  tourSliderTrack.style.transform = `translateX(-${tourSlideIndex * 100}%)`;
+
+  if (tourSliderCurrent) {
+    tourSliderCurrent.textContent = String(tourSlideIndex + 1).padStart(2, "0");
+  }
+}
+
+tourSliderPrevious?.addEventListener("click", () => {
+  showTourSlide(tourSlideIndex - 1);
+});
+
+tourSliderNext?.addEventListener("click", () => {
+  showTourSlide(tourSlideIndex + 1);
+});
+
+tourSlider?.addEventListener(
+  "touchstart",
+  (event) => {
+    tourSliderTouchStart = event.touches[0]?.clientX ?? null;
+  },
+  { passive: true },
+);
+
+tourSlider?.addEventListener(
+  "touchend",
+  (event) => {
+    if (tourSliderTouchStart === null) return;
+    const touchEnd = event.changedTouches[0]?.clientX ?? tourSliderTouchStart;
+    const distance = touchEnd - tourSliderTouchStart;
+
+    if (Math.abs(distance) > 45) {
+      showTourSlide(tourSlideIndex + (distance < 0 ? 1 : -1));
+    }
+
+    tourSliderTouchStart = null;
+  },
+  { passive: true },
+);
 
 tourLightboxClose?.addEventListener("click", closeTourLightbox);
 
