@@ -3315,7 +3315,15 @@ body.lightbox-open {
 
 
 /* ===== Туры во всю ширину экрана ===== */
-.section-wide { padding-left: 24px; padding-right: 24px; }
+.section-wide {
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding-left: 32px;
+  padding-right: 32px;
+  box-sizing: border-box;
+}
 .section-wide .tour-grid { width: 100%; }
 
 
