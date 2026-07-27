@@ -8,11 +8,24 @@ const tourLightboxImage = document.querySelector("[data-tour-lightbox-image]");
 const tourLightboxTitle = document.querySelector("[data-tour-lightbox-title]");
 const tourLightboxText = document.querySelector("[data-tour-lightbox-text]");
 const tourLightboxClose = document.querySelector("[data-tour-lightbox-close]");
+const tourLightboxPrevious = document.querySelector(
+  "[data-tour-lightbox-prev]",
+);
+const tourLightboxNext = document.querySelector("[data-tour-lightbox-next]");
+const tourLightboxCounter = document.querySelector(
+  "[data-tour-lightbox-counter]",
+);
 const tourSlider = document.querySelector("[data-tour-slider]");
 const tourSliderTrack = document.querySelector("[data-tour-slider-track]");
 const tourSliderPrevious = document.querySelector("[data-tour-slider-prev]");
 const tourSliderNext = document.querySelector("[data-tour-slider-next]");
 const tourSliderCurrent = document.querySelector("[data-tour-slider-current]");
+const tourSliderThumbnails = document.querySelectorAll(
+  "[data-tour-slider-thumb]",
+);
+const tourLightboxCards = [
+  ...document.querySelectorAll("[data-tour-lightbox]"),
+];
 const contactMethodInputs = document.querySelectorAll(
   'input[name="contact_method"]',
 );
@@ -22,6 +35,7 @@ const tourDateInput = document.querySelector("[data-tour-date]");
 let toastTimer;
 let activeLightboxTrigger;
 let tourSlideIndex = 0;
+let tourLightboxIndex = 0;
 let tourSliderTouchStart = null;
 
 function setMenu(open) {
@@ -47,17 +61,37 @@ navPanel?.addEventListener("click", (event) => {
   }
 });
 
-function openTourLightbox(card) {
+function renderTourLightbox(index) {
   if (!tourLightbox || !tourLightboxImage) return;
+  if (!tourLightboxCards.length) return;
+
+  tourLightboxIndex =
+    (index + tourLightboxCards.length) % tourLightboxCards.length;
+  const card = tourLightboxCards[tourLightboxIndex];
   const image = card.querySelector("img");
   const title = card.querySelector("h3")?.textContent || "";
   const text = card.querySelector("p")?.textContent || "";
 
-  activeLightboxTrigger = card;
   tourLightboxImage.src = card.href;
   tourLightboxImage.alt = image?.alt || title;
   if (tourLightboxTitle) tourLightboxTitle.textContent = title;
   if (tourLightboxText) tourLightboxText.textContent = text;
+  if (tourLightboxCounter) {
+    tourLightboxCounter.textContent = `${String(tourLightboxIndex + 1).padStart(
+      2,
+      "0",
+    )} / ${String(tourLightboxCards.length).padStart(2, "0")}`;
+  }
+
+  showTourSlide(tourLightboxIndex);
+}
+
+function openTourLightbox(card) {
+  if (!tourLightbox || !tourLightboxImage) return;
+  const index = tourLightboxCards.indexOf(card);
+
+  activeLightboxTrigger = card;
+  renderTourLightbox(index < 0 ? 0 : index);
   tourLightbox.inert = false;
   tourLightbox.setAttribute("aria-hidden", "false");
   tourLightbox.classList.add("is-open");
@@ -74,7 +108,7 @@ function closeTourLightbox() {
   activeLightboxTrigger?.focus();
 }
 
-document.querySelectorAll("[data-tour-lightbox]").forEach((card) => {
+tourLightboxCards.forEach((card) => {
   card.addEventListener("click", (event) => {
     event.preventDefault();
     openTourLightbox(card);
@@ -92,6 +126,16 @@ function showTourSlide(index) {
   if (tourSliderCurrent) {
     tourSliderCurrent.textContent = String(tourSlideIndex + 1).padStart(2, "0");
   }
+
+  tourSliderThumbnails.forEach((thumbnail, thumbnailIndex) => {
+    const isActive = thumbnailIndex === tourSlideIndex;
+    thumbnail.classList.toggle("is-active", isActive);
+    if (isActive) {
+      thumbnail.setAttribute("aria-current", "true");
+    } else {
+      thumbnail.removeAttribute("aria-current");
+    }
+  });
 }
 
 tourSliderPrevious?.addEventListener("click", () => {
@@ -100,6 +144,10 @@ tourSliderPrevious?.addEventListener("click", () => {
 
 tourSliderNext?.addEventListener("click", () => {
   showTourSlide(tourSlideIndex + 1);
+});
+
+tourSliderThumbnails.forEach((thumbnail, index) => {
+  thumbnail.addEventListener("click", () => showTourSlide(index));
 });
 
 tourSlider?.addEventListener(
@@ -127,6 +175,12 @@ tourSlider?.addEventListener(
 );
 
 tourLightboxClose?.addEventListener("click", closeTourLightbox);
+tourLightboxPrevious?.addEventListener("click", () => {
+  renderTourLightbox(tourLightboxIndex - 1);
+});
+tourLightboxNext?.addEventListener("click", () => {
+  renderTourLightbox(tourLightboxIndex + 1);
+});
 
 tourLightbox?.addEventListener("click", (event) => {
   if (event.target === tourLightbox) closeTourLightbox();
@@ -176,6 +230,18 @@ if (tourDateInput) {
 }
 
 document.addEventListener("keydown", (event) => {
+  const lightboxIsOpen = tourLightbox?.classList.contains("is-open");
+
+  if (lightboxIsOpen && event.key === "ArrowLeft") {
+    event.preventDefault();
+    renderTourLightbox(tourLightboxIndex - 1);
+  }
+
+  if (lightboxIsOpen && event.key === "ArrowRight") {
+    event.preventDefault();
+    renderTourLightbox(tourLightboxIndex + 1);
+  }
+
   if (event.key === "Escape") {
     setMenu(false);
     closeTourLightbox();
