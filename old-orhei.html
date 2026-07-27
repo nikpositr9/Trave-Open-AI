@@ -18,7 +18,7 @@
     <meta property="og:image" content="./assets/tours/orhei.svg" />
     <meta property="og:type" content="website" />
     <title>Тур в Старый Орхей из Кишинёва — Travel MD</title>
-    <link rel="stylesheet" href="./styles.css?v=20260727-1" />
+    <link rel="stylesheet" href="./styles.css?v=20260727-2" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -168,7 +168,12 @@
         </div>
 
         <div class="tour-photo-story">
-          <article class="tour-photo-card tour-photo-card--hero">
+          <a
+            class="tour-photo-card"
+            href="./assets/tours/orhei.svg"
+            data-tour-lightbox
+            aria-label="Увеличить фотографию: Панорамная площадка"
+          >
             <img
               src="./assets/tours/orhei.svg"
               alt="Панорама долины реки Реут в Старом Орхее"
@@ -182,9 +187,14 @@
                 амфитеатр Старого Орхея.
               </p>
             </div>
-          </article>
+          </a>
 
-          <article class="tour-photo-card">
+          <a
+            class="tour-photo-card"
+            href="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Bell_tower_of_Orheiul_Vechi_%28182371110%29.jpg/960px-Bell_tower_of_Orheiul_Vechi_%28182371110%29.jpg"
+            data-tour-lightbox
+            aria-label="Увеличить фотографию: Колокольня и каменный крест"
+          >
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Bell_tower_of_Orheiul_Vechi_%28182371110%29.jpg/960px-Bell_tower_of_Orheiul_Vechi_%28182371110%29.jpg"
               alt="Колокольня на скальном мысе Старого Орхея"
@@ -198,9 +208,14 @@
                 естественной крепостью.
               </p>
             </div>
-          </article>
+          </a>
 
-          <article class="tour-photo-card">
+          <a
+            class="tour-photo-card"
+            href="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Cave_Monastery_%281174613494%29.jpg/960px-Cave_Monastery_%281174613494%29.jpg"
+            data-tour-lightbox
+            aria-label="Увеличить фотографию: Пещерный монастырь"
+          >
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Cave_Monastery_%281174613494%29.jpg/960px-Cave_Monastery_%281174613494%29.jpg"
               alt="Помещения пещерного монастыря Старого Орхея"
@@ -214,9 +229,14 @@
                 скале над долиной.
               </p>
             </div>
-          </article>
+          </a>
 
-          <article class="tour-photo-card tour-photo-card--portrait">
+          <a
+            class="tour-photo-card"
+            href="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Monastery_cave_entrance_%28182416936%29.jpg/960px-Monastery_cave_entrance_%28182416936%29.jpg"
+            data-tour-lightbox
+            aria-label="Увеличить фотографию: Старые кельи и проходы"
+          >
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Monastery_cave_entrance_%28182416936%29.jpg/960px-Monastery_cave_entrance_%28182416936%29.jpg"
               alt="Вход в пещерный монастырь Старого Орхея"
@@ -230,9 +250,14 @@
                 монахи.
               </p>
             </div>
-          </article>
+          </a>
 
-          <article class="tour-photo-card">
+          <a
+            class="tour-photo-card"
+            href="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Nice_house_in_Orheiul_Vechi_%28182377980%29.jpg/1280px-Nice_house_in_Orheiul_Vechi_%28182377980%29.jpg"
+            data-tour-lightbox
+            aria-label="Увеличить фотографию: Село Бутучены"
+          >
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Nice_house_in_Orheiul_Vechi_%28182377980%29.jpg/1280px-Nice_house_in_Orheiul_Vechi_%28182377980%29.jpg"
               alt="Традиционный дом в селе Бутучены"
@@ -246,9 +271,14 @@
                 современную жизнь заповедника.
               </p>
             </div>
-          </article>
+          </a>
 
-          <article class="tour-photo-card tour-photo-card--wide">
+          <a
+            class="tour-photo-card"
+            href="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Old_Orhei_dramatic_landscape.jpg/960px-Old_Orhei_dramatic_landscape.jpg"
+            data-tour-lightbox
+            aria-label="Увеличить фотографию: Свободное время у Реута"
+          >
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Old_Orhei_dramatic_landscape.jpg/960px-Old_Orhei_dramatic_landscape.jpg"
               alt="Известняковые склоны Старого Орхея"
@@ -262,7 +292,7 @@
                 возвращением в Кишинёв.
               </p>
             </div>
-          </article>
+          </a>
         </div>
 
         <p class="photo-credits">
@@ -658,7 +688,33 @@
       </div>
     </footer>
 
+    <div
+      class="tour-lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Просмотр фотографии"
+      aria-hidden="true"
+      inert
+      data-tour-lightbox-modal
+    >
+      <button
+        class="tour-lightbox__close"
+        type="button"
+        aria-label="Закрыть фотографию"
+        data-tour-lightbox-close
+      >
+        ×
+      </button>
+      <figure class="tour-lightbox__figure">
+        <img src="" alt="" data-tour-lightbox-image />
+        <figcaption>
+          <strong data-tour-lightbox-title></strong>
+          <span data-tour-lightbox-text></span>
+        </figcaption>
+      </figure>
+    </div>
+
     <div class="toast" role="status" aria-live="polite"></div>
-    <script src="./script.js?v=20260727-1"></script>
+    <script src="./script.js?v=20260727-2"></script>
   </body>
 </html>
