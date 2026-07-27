@@ -286,7 +286,7 @@ const videoNext = document.querySelector("[data-video-next]");
 function scrollVideos(direction) {
   if (!videoTrack) return;
   const firstCard = videoTrack.querySelector(".video-slide");
-  const step = firstCard ? firstCard.getBoundingClientRect().width + 20 : 420;
+  const step = firstCard ? firstCard.getBoundingClientRect().width + 16 : 320;
   videoTrack.scrollBy({ left: direction * step, behavior: "smooth" });
 }
 
