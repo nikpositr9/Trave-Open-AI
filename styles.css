@@ -3722,3 +3722,98 @@ body.lightbox-open {
     left: 20px;
   }
 }
+
+
+/* ===== Чистая компоновка заголовков и карточки событий с фото ===== */
+.section-heading--stacked {
+  display: block;
+}
+.section-heading--stacked > div {
+  max-width: 760px;
+}
+.section-heading--stacked .section-intro {
+  max-width: 650px;
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.events-section {
+  color: var(--ink);
+}
+.events-head {
+  align-items: flex-end;
+}
+.events-heading-copy {
+  max-width: 760px;
+}
+.events-lead {
+  max-width: 620px;
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.5;
+}
+.event-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 340px;
+  color: var(--white);
+  background: var(--panel);
+}
+.event-card.ev-lime,
+.event-card.ev-peach,
+.event-card.ev-sky,
+.event-card.ev-lilac {
+  background: var(--panel);
+}
+.event-image {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 500ms ease;
+}
+.event-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(1, 3, 14, 0.18) 0%, rgba(1, 3, 14, 0.22) 38%, rgba(1, 3, 14, 0.9) 100%);
+}
+.event-card:hover .event-image {
+  transform: scale(1.04);
+}
+.event-date {
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--ink);
+  backdrop-filter: blur(8px);
+}
+.event-kind {
+  border-color: rgba(255, 255, 255, 0.62);
+  background: rgba(1, 3, 14, 0.28);
+  color: var(--white);
+  backdrop-filter: blur(8px);
+}
+.event-body p {
+  color: rgba(255, 255, 255, 0.82);
+  opacity: 1;
+}
+.event-arrow {
+  background: var(--white);
+  color: var(--ink);
+}
+
+@media (max-width: 760px) {
+  .events-head {
+    align-items: flex-start;
+  }
+  .events-head .slider-actions {
+    margin-top: 6px;
+  }
+}
