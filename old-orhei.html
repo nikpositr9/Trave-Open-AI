@@ -18,7 +18,7 @@
     <meta property="og:image" content="./assets/tours/orhei.svg" />
     <meta property="og:type" content="website" />
     <title>Тур в Старый Орхей из Кишинёва — Travel MD</title>
-    <link rel="stylesheet" href="./styles.css?v=20260727-4" />
+    <link rel="stylesheet" href="./styles.css?v=20260727-5" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -296,31 +296,98 @@
                 </div>
               </a>
             </div>
+
+            <div class="tour-photo-slider__controls">
+              <span class="tour-photo-slider__counter" aria-live="polite">
+                <strong data-tour-slider-current>01</strong>
+                <span>/ 06</span>
+              </span>
+              <div class="tour-photo-slider__buttons">
+                <button
+                  class="tour-photo-slider__button"
+                  type="button"
+                  data-tour-slider-prev
+                  aria-label="Предыдущая фотография"
+                >
+                  ←
+                </button>
+                <button
+                  class="tour-photo-slider__button"
+                  type="button"
+                  data-tour-slider-next
+                  aria-label="Следующая фотография"
+                >
+                  →
+                </button>
+              </div>
+            </div>
           </div>
 
-          <div class="tour-photo-slider__controls">
-            <span class="tour-photo-slider__counter" aria-live="polite">
-              <strong data-tour-slider-current>01</strong>
-              <span>/ 06</span>
-            </span>
-            <div class="tour-photo-slider__buttons">
-              <button
-                class="tour-photo-slider__button"
-                type="button"
-                data-tour-slider-prev
-                aria-label="Предыдущая фотография"
-              >
-                ←
-              </button>
-              <button
-                class="tour-photo-slider__button"
-                type="button"
-                data-tour-slider-next
-                aria-label="Следующая фотография"
-              >
-                →
-              </button>
-            </div>
+          <div class="tour-photo-thumbnails" aria-label="Выбрать фотографию">
+            <button
+              class="tour-photo-thumbnail is-active"
+              type="button"
+              data-tour-slider-thumb
+              aria-label="Показать фотографию 1: Панорамная площадка"
+              aria-current="true"
+            >
+              <img src="./assets/tours/orhei.svg" alt="" />
+            </button>
+            <button
+              class="tour-photo-thumbnail"
+              type="button"
+              data-tour-slider-thumb
+              aria-label="Показать фотографию 2: Колокольня"
+            >
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Bell_tower_of_Orheiul_Vechi_%28182371110%29.jpg/960px-Bell_tower_of_Orheiul_Vechi_%28182371110%29.jpg"
+                alt=""
+              />
+            </button>
+            <button
+              class="tour-photo-thumbnail"
+              type="button"
+              data-tour-slider-thumb
+              aria-label="Показать фотографию 3: Пещерный монастырь"
+            >
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Cave_Monastery_%281174613494%29.jpg/960px-Cave_Monastery_%281174613494%29.jpg"
+                alt=""
+              />
+            </button>
+            <button
+              class="tour-photo-thumbnail"
+              type="button"
+              data-tour-slider-thumb
+              aria-label="Показать фотографию 4: Монастырские кельи"
+            >
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Monastery_cave_entrance_%28182416936%29.jpg/960px-Monastery_cave_entrance_%28182416936%29.jpg"
+                alt=""
+              />
+            </button>
+            <button
+              class="tour-photo-thumbnail"
+              type="button"
+              data-tour-slider-thumb
+              aria-label="Показать фотографию 5: Село Бутучены"
+            >
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Nice_house_in_Orheiul_Vechi_%28182377980%29.jpg/1280px-Nice_house_in_Orheiul_Vechi_%28182377980%29.jpg"
+                alt=""
+              />
+            </button>
+            <button
+              class="tour-photo-thumbnail"
+              type="button"
+              data-tour-slider-thumb
+              aria-label="Показать фотографию 6: Долина Реута"
+            >
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Old_Orhei_dramatic_landscape.jpg/960px-Old_Orhei_dramatic_landscape.jpg"
+                alt=""
+              />
+            </button>
           </div>
         </div>
 
@@ -346,6 +413,92 @@
           >
           / Wikimedia Commons.
         </p>
+      </section>
+
+      <section class="tour-booking tour-booking--featured" id="booking">
+        <div class="tour-booking-copy">
+          <span class="tour-booking-badge">Ответим и подберём формат</span>
+          <p class="eyebrow">Запланировать путешествие</p>
+          <h2>Хотите поехать в Старый Орхей?</h2>
+          <p>
+            Укажите дату и количество гостей. Свяжемся удобным для вас способом
+            и отправим точную программу и стоимость.
+          </p>
+        </div>
+        <form class="tour-booking-form" data-demo-form>
+          <fieldset class="tour-contact-method">
+            <legend>Как с вами связаться</legend>
+            <div>
+              <label>
+                <input
+                  type="radio"
+                  name="contact_method"
+                  value="whatsapp"
+                  checked
+                />
+                <span>WhatsApp</span>
+              </label>
+              <label>
+                <input type="radio" name="contact_method" value="telegram" />
+                <span>Telegram</span>
+              </label>
+              <label>
+                <input type="radio" name="contact_method" value="email" />
+                <span>Email</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <label class="tour-booking-field">
+            <span>Ваше имя</span>
+            <input
+              type="text"
+              name="name"
+              placeholder="Как к вам обращаться"
+              required
+            />
+          </label>
+
+          <label class="tour-booking-field">
+            <span data-contact-label>Номер WhatsApp</span>
+            <input
+              type="tel"
+              name="contact"
+              placeholder="+373 60 000 000"
+              autocomplete="tel"
+              inputmode="tel"
+              data-contact-input
+              required
+            />
+          </label>
+
+          <label class="tour-booking-field">
+            <span>Дата тура</span>
+            <input type="date" name="date" data-tour-date required />
+          </label>
+
+          <label class="tour-booking-field">
+            <span>Количество человек</span>
+            <input
+              type="number"
+              name="people"
+              min="1"
+              max="30"
+              value="2"
+              inputmode="numeric"
+              required
+            />
+          </label>
+
+          <button class="button" type="submit">
+            Получить программу и стоимость
+            <span class="button-arrow">›</span>
+          </button>
+          <label class="form-consent">
+            <input type="checkbox" required />
+            Я согласен на обработку персональных данных
+          </label>
+        </form>
       </section>
 
       <section class="tour-detail-section tour-program" id="program">
@@ -629,90 +782,6 @@
         </div>
       </section>
 
-      <section class="tour-booking" id="booking">
-        <div class="tour-booking-copy">
-          <p class="eyebrow">Начнём с короткого разговора</p>
-          <h2>Хотите поехать в Старый Орхей?</h2>
-          <p>
-            Оставьте контакт. Мы уточним дату, количество гостей, язык и
-            подходящий формат путешествия.
-          </p>
-        </div>
-        <form class="tour-booking-form" data-demo-form>
-          <fieldset class="tour-contact-method">
-            <legend>Как с вами связаться</legend>
-            <div>
-              <label>
-                <input
-                  type="radio"
-                  name="contact_method"
-                  value="whatsapp"
-                  checked
-                />
-                <span>WhatsApp</span>
-              </label>
-              <label>
-                <input type="radio" name="contact_method" value="telegram" />
-                <span>Telegram</span>
-              </label>
-              <label>
-                <input type="radio" name="contact_method" value="email" />
-                <span>Email</span>
-              </label>
-            </div>
-          </fieldset>
-
-          <label class="tour-booking-field">
-            <span>Ваше имя</span>
-            <input
-              type="text"
-              name="name"
-              placeholder="Как к вам обращаться"
-              required
-            />
-          </label>
-
-          <label class="tour-booking-field">
-            <span data-contact-label>Номер WhatsApp</span>
-            <input
-              type="tel"
-              name="contact"
-              placeholder="+373 60 000 000"
-              autocomplete="tel"
-              inputmode="tel"
-              data-contact-input
-              required
-            />
-          </label>
-
-          <label class="tour-booking-field">
-            <span>Дата тура</span>
-            <input type="date" name="date" data-tour-date required />
-          </label>
-
-          <label class="tour-booking-field">
-            <span>Количество человек</span>
-            <input
-              type="number"
-              name="people"
-              min="1"
-              max="30"
-              value="2"
-              inputmode="numeric"
-              required
-            />
-          </label>
-
-          <button class="button" type="submit">
-            Получить предложение <span class="button-arrow">›</span>
-          </button>
-          <label class="form-consent">
-            <input type="checkbox" required />
-            Я согласен на обработку персональных данных
-          </label>
-        </form>
-      </section>
-
       <section class="related-section">
         <div class="tour-section-heading">
           <p class="eyebrow">Продолжить знакомство</p>
@@ -790,16 +859,37 @@
       >
         ×
       </button>
+      <button
+        class="tour-lightbox__nav tour-lightbox__nav--prev"
+        type="button"
+        aria-label="Предыдущая увеличенная фотография"
+        data-tour-lightbox-prev
+      >
+        ←
+      </button>
+      <button
+        class="tour-lightbox__nav tour-lightbox__nav--next"
+        type="button"
+        aria-label="Следующая увеличенная фотография"
+        data-tour-lightbox-next
+      >
+        →
+      </button>
       <figure class="tour-lightbox__figure">
         <img src="" alt="" data-tour-lightbox-image />
         <figcaption>
-          <strong data-tour-lightbox-title></strong>
+          <div>
+            <span class="tour-lightbox__counter" data-tour-lightbox-counter
+              >01 / 06</span
+            >
+            <strong data-tour-lightbox-title></strong>
+          </div>
           <span data-tour-lightbox-text></span>
         </figcaption>
       </figure>
     </div>
 
     <div class="toast" role="status" aria-live="polite"></div>
-    <script src="./script.js?v=20260727-4"></script>
+    <script src="./script.js?v=20260727-5"></script>
   </body>
 </html>
