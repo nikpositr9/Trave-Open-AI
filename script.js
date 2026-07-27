@@ -293,6 +293,20 @@ function scrollVideos(direction) {
 videoPrevious?.addEventListener("click", () => scrollVideos(-1));
 videoNext?.addEventListener("click", () => scrollVideos(1));
 
+const eventTrack = document.querySelector("[data-event-track]");
+const eventPrevious = document.querySelector("[data-event-prev]");
+const eventNext = document.querySelector("[data-event-next]");
+
+function scrollEvents(direction) {
+  if (!eventTrack) return;
+  const firstCard = eventTrack.querySelector(".event-card");
+  const step = firstCard ? firstCard.getBoundingClientRect().width + 18 : 320;
+  eventTrack.scrollBy({ left: direction * step, behavior: "smooth" });
+}
+
+eventPrevious?.addEventListener("click", () => scrollEvents(-1));
+eventNext?.addEventListener("click", () => scrollEvents(1));
+
 const clock = document.querySelector("[data-chisinau-clock]");
 const chisinauTime = new Intl.DateTimeFormat("ru-RU", {
   timeZone: "Europe/Chisinau",
