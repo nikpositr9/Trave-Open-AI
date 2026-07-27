@@ -3817,3 +3817,10 @@ body.lightbox-open {
     margin-top: 6px;
   }
 }
+
+
+/* Сохраняем заметный зазор между заголовком каталога и описанием. */
+#tours .section-heading--stacked .section-intro {
+  max-width: 650px;
+  margin-top: 18px;
+}
