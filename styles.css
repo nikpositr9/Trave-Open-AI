@@ -607,13 +607,10 @@ img {
 }
 
 .video-track {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
   gap: 16px;
-  overflow-x: auto;
   padding: 4px 2px 14px;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
 }
 
 .video-track::-webkit-scrollbar {
@@ -621,9 +618,7 @@ img {
 }
 
 .video-slide {
-  flex: 0 0 clamp(240px, 23vw, 330px);
   min-width: 0;
-  scroll-snap-align: start;
 }
 
 .video-poster {
@@ -3062,7 +3057,7 @@ body.lightbox-open {
   }
 
   .video-slide {
-    flex-basis: 78vw;
+    min-width: 0;
   }
 
   .video-play {
