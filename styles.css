@@ -3118,10 +3118,19 @@ body.lightbox-open {
 
 /* ===== Ближайшие события ===== */
 .events-section { color: var(--white); }
-.event-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+.event-track {
+  display: flex;
   gap: 18px;
+  overflow-x: auto;
+  padding: 4px 2px 16px;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.event-track::-webkit-scrollbar { display: none; }
+.event-card {
+  flex: 0 0 clamp(260px, 22vw, 320px);
+  scroll-snap-align: start;
 }
 .event-card {
   display: flex;
@@ -3188,7 +3197,7 @@ body.lightbox-open {
 }
 .events-note { margin-top: 26px; font-size: 13px; color: var(--muted); }
 @media (max-width: 640px) {
-  .event-grid { grid-template-columns: 1fr; }
+  .event-card { flex-basis: 82vw; }
   .event-card { min-height: 360px; }
 }
 
@@ -3210,3 +3219,5 @@ body.lightbox-open {
 @media (max-width: 560px) {
   .tour-grid { grid-template-columns: 1fr; }
 }
+
+.events-lead { max-width: 320px; font-size: 15px; color: var(--muted); }
