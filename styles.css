@@ -3121,7 +3121,7 @@ body.lightbox-open {
 .events-section { color: var(--white); }
 .event-track {
   display: flex;
-  gap: 18px;
+  gap: 22px;
   overflow-x: auto;
   padding: 4px 2px 16px;
   scroll-behavior: smooth;
@@ -3130,7 +3130,7 @@ body.lightbox-open {
 }
 .event-track::-webkit-scrollbar { display: none; }
 .event-card {
-  flex: 0 0 calc((100% - 5 * 18px) / 6);
+  flex: 0 0 calc((100% - 5 * 22px) / 6);
   scroll-snap-align: start;
 }
 .event-card {
@@ -3320,6 +3320,6 @@ body.lightbox-open {
 
 
 /* события: адаптив числа карточек */
-@media (max-width: 1200px) { .event-card { flex-basis: calc((100% - 3 * 18px) / 4); } }
-@media (max-width: 760px)  { .event-card { flex-basis: calc((100% - 2 * 18px) / 3); } }
+@media (max-width: 1200px) { .event-card { flex-basis: calc((100% - 3 * 22px) / 4); } }
+@media (max-width: 760px)  { .event-card { flex-basis: calc((100% - 2 * 22px) / 3); } }
 @media (max-width: 520px)  { .event-card { flex-basis: 78vw; } }
