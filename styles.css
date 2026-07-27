@@ -1185,19 +1185,29 @@ img {
   line-height: 1.35;
 }
 
+.tour-photo-slider {
+  position: relative;
+}
+
 .tour-photo-story {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--panel);
+}
+
+.tour-photo-track {
+  display: flex;
+  transition: transform 650ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
 }
 
 .tour-photo-card {
   position: relative;
+  flex: 0 0 100%;
   width: 100%;
   min-height: 460px;
   aspect-ratio: 16 / 7;
   overflow: hidden;
-  border-radius: var(--radius-md);
   background: var(--panel);
   color: var(--white);
   cursor: zoom-in;
@@ -1266,6 +1276,56 @@ img {
   margin: 10px 0 0;
   color: rgba(255, 255, 255, 0.75);
   font-size: 15px;
+}
+
+.tour-photo-slider__controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 18px;
+}
+
+.tour-photo-slider__counter {
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+  color: var(--muted);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+}
+
+.tour-photo-slider__counter strong {
+  color: var(--ink);
+  font-size: 30px;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+}
+
+.tour-photo-slider__buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.tour-photo-slider__button {
+  display: grid;
+  width: 54px;
+  height: 54px;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--ink);
+  font-size: 22px;
+  transition:
+    color 180ms ease,
+    background 180ms ease,
+    transform 180ms ease;
+}
+
+.tour-photo-slider__button:hover {
+  color: var(--white);
+  background: var(--ink);
+  transform: translateY(-2px);
 }
 
 .photo-credits {
@@ -2241,7 +2301,6 @@ body.lightbox-open {
   }
 
   .tour-photo-card {
-    grid-column: 1 / -1;
     min-height: 420px;
   }
 
@@ -2525,12 +2584,7 @@ body.lightbox-open {
     font-size: 17px;
   }
 
-  .tour-photo-story {
-    gap: 16px;
-  }
-
   .tour-photo-card {
-    grid-column: 1 / -1;
     min-height: 340px;
     aspect-ratio: 4 / 3;
   }
@@ -2547,6 +2601,15 @@ body.lightbox-open {
 
   .tour-photo-card__copy p {
     font-size: 13px;
+  }
+
+  .tour-photo-slider__controls {
+    margin-top: 14px;
+  }
+
+  .tour-photo-slider__button {
+    width: 48px;
+    height: 48px;
   }
 
   .tour-lightbox {
